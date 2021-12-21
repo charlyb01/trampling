@@ -1,25 +1,39 @@
 {
   "schemaVersion": 1,
-  "id": "trampling",
+  "id": "trample",
   "version": "${version}",
-  "name": "Trampling",
+  "name": "Trample",
   "description": "Trampling that makes more sense",
   "authors": [
     "Pardys"
   ],
-  "contact": {},
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/trample",
+    "issues": "https://github.com/sf-inc/trampling/issues",
+    "sources": "https://github.com/sf-inc/trampling"
+  },
   "license": "MIT",
   "icon": "assets/trampling/icon.png",
   "environment": "server",
   "entrypoints": {
     "main": [
       "com.github.charlyb01.trampling.Trampling"
+    ],
+    "modmenu": [
+      "com.github.charlyb01.trampling.config.ModMenuIntegration"
     ]
   },
   "mixins": [
     "trampling.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.12.12"
+    "fabricloader": ">=0.12.12",
+    "fabric": "*"
+  },
+  "custom": {
+    "modupdater": {
+      "strategy": "curseforge",
+      "projectID": 559038
+    }
   }
 }
