@@ -31,7 +31,6 @@ public class FarmlandBlockMixin extends Block {
                 && ((LivingEntity) entity).getEquippedStack(EquipmentSlot.FEET).isOf(Items.LEATHER_BOOTS))
                 || (ModConfig.get().featherFalling
                 && EnchantmentHelper.getEquipmentLevel(Enchantments.FEATHER_FALLING, (LivingEntity) entity) > 0)) {
-            System.out.println("yop");
             super.onLandedUpon(world, state, pos, entity, fallDistance);
             ci.cancel();
         }
