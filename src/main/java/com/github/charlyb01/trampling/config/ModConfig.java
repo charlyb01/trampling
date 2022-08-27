@@ -13,6 +13,7 @@ public class ModConfig implements ConfigData {
     public static class CropBuff {
         public boolean leatherBoots = true;
         public boolean featherFalling = true;
+        public boolean sneaking = true;
     }
 
     @ConfigEntry.Gui.CollapsibleObject

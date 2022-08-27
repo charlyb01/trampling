@@ -2,6 +2,12 @@ package com.github.charlyb01.trampling;
 
 import com.github.charlyb01.trampling.config.ModConfig;
 import net.minecraft.block.BlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -18,5 +24,15 @@ public class Utils {
                 }
             }
         }
+    }
+
+    public static boolean canCancelTrample(final Entity entity) {
+        return (ModConfig.get().cropBuff.leatherBoots && ((LivingEntity) entity).getEquippedStack(EquipmentSlot.FEET).isOf(Items.LEATHER_BOOTS))
+                || (ModConfig.get().cropBuff.featherFalling && EnchantmentHelper.getEquipmentLevel(Enchantments.FEATHER_FALLING, (LivingEntity) entity) > 0);
+    }
+
+    public static boolean cantCancelStun(final Entity entity) {
+        return !canCancelTrample(entity)
+                && (!ModConfig.get().cropBuff.sneaking || !entity.isSneaking());
     }
 }

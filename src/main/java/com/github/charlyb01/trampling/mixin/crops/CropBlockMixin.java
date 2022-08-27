@@ -1,6 +1,5 @@
 package com.github.charlyb01.trampling.mixin.crops;
 
-import com.github.charlyb01.trampling.Trampling;
 import com.github.charlyb01.trampling.Utils;
 import com.github.charlyb01.trampling.config.ModConfig;
 import net.minecraft.block.Block;
@@ -48,6 +47,8 @@ public class CropBlockMixin extends PlantBlock {
 
     @Inject(method = "onEntityCollision", at = @At("HEAD"))
     void tryStunCrop(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
-        Utils.tryStunAround(world, pos);
+        if (Utils.cantCancelStun(entity)) {
+            Utils.tryStunAround(world, pos);
+        }
     }
 }

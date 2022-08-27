@@ -1,6 +1,5 @@
 package com.github.charlyb01.trampling.mixin.crops;
 
-import com.github.charlyb01.trampling.Trampling;
 import com.github.charlyb01.trampling.Utils;
 import com.github.charlyb01.trampling.config.ModConfig;
 import net.minecraft.block.Block;
@@ -50,8 +49,9 @@ public class StemBlockMixin extends PlantBlock {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        Utils.tryStunAround(world, pos);
-
+        if (Utils.cantCancelStun(entity)) {
+            Utils.tryStunAround(world, pos);
+        }
         if (entity instanceof RavagerEntity && world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             world.breakBlock(pos, true, entity);
         }
