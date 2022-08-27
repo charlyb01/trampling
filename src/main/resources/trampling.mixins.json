@@ -4,7 +4,10 @@
   "package": "com.github.charlyb01.trampling.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "FarmlandBlockMixin"
+    "FarmlandBlockMixin",
+    "crops.BeetrootsBlockMixin",
+    "crops.CropBlockMixin",
+    "crops.StemBlockMixin"
   ],
   "client": [
   ],

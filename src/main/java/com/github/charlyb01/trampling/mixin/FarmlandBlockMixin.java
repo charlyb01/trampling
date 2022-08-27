@@ -27,9 +27,9 @@ public class FarmlandBlockMixin extends Block {
             cancellable = true)
     private void cancelTrampling(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance,
                                  CallbackInfo ci) {
-        if ((ModConfig.get().leatherBoots
+        if ((ModConfig.get().cropBuff.leatherBoots
                 && ((LivingEntity) entity).getEquippedStack(EquipmentSlot.FEET).isOf(Items.LEATHER_BOOTS))
-                || (ModConfig.get().featherFalling
+                || (ModConfig.get().cropBuff.featherFalling
                 && EnchantmentHelper.getEquipmentLevel(Enchantments.FEATHER_FALLING, (LivingEntity) entity) > 0)) {
             super.onLandedUpon(world, state, pos, entity, fallDistance);
             ci.cancel();
