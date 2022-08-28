@@ -49,11 +49,11 @@ public class StemBlockMixin extends PlantBlock {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (Utils.cantCancelStun(entity)) {
-            Utils.tryStunAround(world, pos);
-        }
         if (entity instanceof RavagerEntity && world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             world.breakBlock(pos, true, entity);
+        }
+        else if (Utils.cantCancelStun(entity ,world)) {
+            Utils.tryStunAround(world, pos);
         }
         super.onEntityCollision(state, world, pos, entity);
     }

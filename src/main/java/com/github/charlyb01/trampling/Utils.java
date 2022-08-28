@@ -7,8 +7,10 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 
 import static com.github.charlyb01.trampling.Trampling.STUNNED;
@@ -31,8 +33,11 @@ public class Utils {
                 || (ModConfig.get().cropBuff.featherFalling && EnchantmentHelper.getEquipmentLevel(Enchantments.FEATHER_FALLING, (LivingEntity) entity) > 0);
     }
 
-    public static boolean cantCancelStun(final Entity entity) {
-        return !canCancelTrample(entity)
+    public static boolean cantCancelStun(final Entity entity, final World world) {
+        return !world.isClient()
+                && entity instanceof LivingEntity
+                && (entity instanceof PlayerEntity || world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING))
+                && !canCancelTrample(entity)
                 && (!ModConfig.get().cropBuff.sneaking || !entity.isSneaking());
     }
 }
