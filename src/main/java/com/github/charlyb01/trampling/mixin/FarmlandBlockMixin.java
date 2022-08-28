@@ -22,7 +22,7 @@ public class FarmlandBlockMixin extends Block {
             cancellable = true)
     private void cancelTrampling(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance,
                                  CallbackInfo ci) {
-        if (Utils.canCancelTrample(entity)) {
+        if (Utils.canCancelTrampleOnLanded(entity)) {
             super.onLandedUpon(world, state, pos, entity, fallDistance);
             ci.cancel();
         }

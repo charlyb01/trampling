@@ -28,16 +28,16 @@ public class Utils {
         }
     }
 
-    public static boolean canCancelTrample(final Entity entity) {
+    public static boolean canCancelTrampleOnLanded(final Entity entity) {
         return (ModConfig.get().cropBuff.leatherBoots && ((LivingEntity) entity).getEquippedStack(EquipmentSlot.FEET).isOf(Items.LEATHER_BOOTS))
                 || (ModConfig.get().cropBuff.featherFalling && EnchantmentHelper.getEquipmentLevel(Enchantments.FEATHER_FALLING, (LivingEntity) entity) > 0);
     }
 
-    public static boolean cantCancelStun(final Entity entity, final World world) {
+    public static boolean cantCancelTrample(final Entity entity, final World world) {
         return !world.isClient()
                 && entity instanceof LivingEntity
                 && (entity instanceof PlayerEntity || world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING))
-                && !canCancelTrample(entity)
+                && !canCancelTrampleOnLanded(entity)
                 && (!ModConfig.get().cropBuff.sneaking || !entity.isSneaking());
     }
 }
