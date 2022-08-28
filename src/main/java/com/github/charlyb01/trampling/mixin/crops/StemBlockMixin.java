@@ -12,7 +12,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -49,12 +48,15 @@ public class StemBlockMixin extends PlantBlock {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (entity instanceof RavagerEntity && world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            world.breakBlock(pos, true, entity);
+        if (Utils.cantCancelTrample(entity ,world)) {
+            if (world.getRandom().nextInt(100) < ModConfig.get().cropDebuff.blockBreakingChance
+                    || entity instanceof RavagerEntity) {
+                world.breakBlock(pos, true, entity);
+            } else {
+                Utils.tryStunAround(world, pos);
+            }
         }
-        else if (Utils.cantCancelTrample(entity ,world)) {
-            Utils.tryStunAround(world, pos);
-        }
+
         super.onEntityCollision(state, world, pos, entity);
     }
 }

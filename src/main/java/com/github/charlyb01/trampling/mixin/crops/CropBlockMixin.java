@@ -47,8 +47,12 @@ public class CropBlockMixin extends PlantBlock {
 
     @Inject(method = "onEntityCollision", at = @At("HEAD"))
     void tryStunCrop(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
-        if (Utils.cantCancelTrample(entity, world)) {
-            Utils.tryStunAround(world, pos);
+        if (Utils.cantCancelTrample(entity ,world)) {
+            if (world.getRandom().nextInt(100) < ModConfig.get().cropDebuff.blockBreakingChance) {
+                world.breakBlock(pos, true, entity);
+            } else {
+                Utils.tryStunAround(world, pos);
+            }
         }
     }
 }

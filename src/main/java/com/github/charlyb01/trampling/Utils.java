@@ -17,7 +17,7 @@ import static com.github.charlyb01.trampling.Trampling.STUNNED;
 
 public class Utils {
     public static void tryStunAround(final World world, final BlockPos pos) {
-        if (!world.isClient() && world.getTime() % 5 == 0
+        if (!world.isClient()
                 && world.getRandom().nextInt(100) < ModConfig.get().cropDebuff.stunnedOnTrampleChance) {
             for (BlockPos randomPos : BlockPos.iterateRandomly(world.getRandom(), 3, pos, 1)) {
                 BlockState randomPosState = world.getBlockState(randomPos);
@@ -35,6 +35,7 @@ public class Utils {
 
     public static boolean cantCancelTrample(final Entity entity, final World world) {
         return !world.isClient()
+                && world.getTime() % 5 == 0
                 && entity instanceof LivingEntity
                 && (entity instanceof PlayerEntity || world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING))
                 && !canCancelTrampleOnLanded(entity)

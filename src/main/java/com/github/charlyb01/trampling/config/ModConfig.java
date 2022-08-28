@@ -24,6 +24,8 @@ public class ModConfig implements ConfigData {
         public int stunnedOnTrampleChance = 80;
         @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
         public int unstunSuccessChance = 10;
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+        public int blockBreakingChance = 5;
     }
 
 
