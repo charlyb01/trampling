@@ -1,5 +1,15 @@
 {
   "text.autoconfig.trampling.title": "Trampling Configuration",
-  "text.autoconfig.trampling.option.leatherBoots": "No trample with leather boots",
-  "text.autoconfig.trampling.option.featherFalling": "No trample with feather falling"
+
+  "text.autoconfig.trampling.option.cropBuff": "Crop Buff",
+  "text.autoconfig.trampling.option.cropBuff.leatherBoots": "No trample with leather boots",
+  "text.autoconfig.trampling.option.cropBuff.featherFalling": "No trample with feather falling",
+  "text.autoconfig.trampling.option.cropBuff.sneaking": "No trample when sneaking",
+  "text.autoconfig.trampling.option.cropBuff.sneaking.@Tooltip": "Doesn't apply on fall!",
+
+  "text.autoconfig.trampling.option.cropDebuff": "Crop Debuff",
+  "text.autoconfig.trampling.option.cropDebuff.blockBreakingChance": "Crop breaking chance",
+  "text.autoconfig.trampling.option.cropDebuff.stunnedOnTrampleChance": "Crop stunning chance",
+  "text.autoconfig.trampling.option.cropDebuff.unstunSuccessChance": "Crop chance to be not stunned anymore",
+  "text.autoconfig.trampling.option.cropDebuff.unstunSuccessChance.@Tooltip": "Each time it tries to grow"
 }

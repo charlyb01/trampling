@@ -1,5 +1,15 @@
 {
   "text.autoconfig.trampling.title": "Trampling Configuration",
-  "text.autoconfig.trampling.option.leatherBoots": "Pas de piétinnements avec bottes en cuir",
-  "text.autoconfig.trampling.option.featherFalling": "Pas de piétinnements avec chute amortie"
+
+  "text.autoconfig.trampling.option.cropBuff": "Buff des cultures",
+  "text.autoconfig.trampling.option.cropBuff.leatherBoots": "Pas de piétinements avec bottes en cuir",
+  "text.autoconfig.trampling.option.cropBuff.featherFalling": "Pas de piétinements avec chute amortie",
+  "text.autoconfig.trampling.option.cropBuff.sneaking": "Pas de piétinements en étant accroupi",
+  "text.autoconfig.trampling.option.cropBuff.sneaking.@Tooltip": "Sauf en cas de chute !",
+
+  "text.autoconfig.trampling.option.cropDebuff": "Debuff des cultures",
+  "text.autoconfig.trampling.option.cropDebuff.blockBreakingChance": "Chance de casser une culture",
+  "text.autoconfig.trampling.option.cropDebuff.stunnedOnTrampleChance": "Chance de retarder la croissance de cultures",
+  "text.autoconfig.trampling.option.cropDebuff.unstunSuccessChance": "Chance qu'une culture puissent à nouveau grandir",
+  "text.autoconfig.trampling.option.cropDebuff.unstunSuccessChance.@Tooltip": "A chaque fois qu'elle essaie de grandir"
 }

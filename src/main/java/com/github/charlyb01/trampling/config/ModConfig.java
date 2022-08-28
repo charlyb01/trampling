@@ -13,6 +13,7 @@ public class ModConfig implements ConfigData {
     public static class CropBuff {
         public boolean leatherBoots = true;
         public boolean featherFalling = true;
+        @ConfigEntry.Gui.Tooltip
         public boolean sneaking = true;
     }
 
@@ -21,11 +22,12 @@ public class ModConfig implements ConfigData {
 
     public static class CropDebuff {
         @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+        public int blockBreakingChance = 5;
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
         public int stunnedOnTrampleChance = 80;
         @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+        @ConfigEntry.Gui.Tooltip
         public int unstunSuccessChance = 10;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-        public int blockBreakingChance = 5;
     }
 
 
