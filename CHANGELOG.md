@@ -4,6 +4,9 @@
 * **x.X versions** are either updates that add content or major bug fixes
 * **x.x.X versions** are either small content updates (language translation, new textures, ...) or bug fixes
 
+## v1.1.1
+* Port to 1.20.1
+
 ## v1.1
 ### Crops breaking
 * Crops can be broken when a living entity walks on it.
