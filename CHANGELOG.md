@@ -4,6 +4,10 @@
 * **x.X versions** are either updates that add content or major bug fixes
 * **x.x.X versions** are either small content updates (language translation, new textures, ...) or bug fixes
 
+## v1.1.2
+* Use item tag to prevent trampling, so we can add other foot armors
+* Use enchantment tag to prevent trampling, so we can add foot armor enchantments
+
 ## v1.1.1
 * Port to 1.20.1
 
