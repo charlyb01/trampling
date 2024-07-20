@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static com.github.charlyb01.trampling.Trampling.STUNNED;
 
 @Mixin(CropBlock.class)
-public class CropBlockMixin extends PlantBlock {
+public abstract class CropBlockMixin extends PlantBlock {
     public CropBlockMixin(Settings settings) {
         super(settings);
     }

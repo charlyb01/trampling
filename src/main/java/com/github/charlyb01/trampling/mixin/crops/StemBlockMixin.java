@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static com.github.charlyb01.trampling.Trampling.STUNNED;
 
 @Mixin(StemBlock.class)
-public class StemBlockMixin extends PlantBlock {
+public abstract class StemBlockMixin extends PlantBlock {
         public StemBlockMixin(Settings settings) {
         super(settings);
     }
