@@ -1,8 +1,10 @@
 package com.github.charlyb01.trampling;
 
 import com.github.charlyb01.trampling.config.ModConfig;
+import com.github.charlyb01.trampling.datagen.EnchantmentTagGenerator;
 import com.github.charlyb01.trampling.datagen.ItemTagGenerator;
 import net.minecraft.block.BlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -31,10 +33,12 @@ public class Utils {
         if (!(entity instanceof LivingEntity livingEntity)) return false;
 
         ItemStack boots = livingEntity.getEquippedStack(EquipmentSlot.FEET);
-        boolean leather = ModConfig.get().cropBuff.leatherBoots && boots.isIn(ItemTagGenerator.NO_TRAMPLING_FOOT_WEARABLES);
-        boolean featherFalling = ModConfig.get().cropBuff.featherFalling;
+        boolean item = ModConfig.get().cropBuff.leatherBoots
+                && boots.isIn(ItemTagGenerator.NO_TRAMPLING_FOOT_WEARABLES);
+        boolean enchant = ModConfig.get().cropBuff.featherFalling
+                && EnchantmentHelper.hasAnyEnchantmentsIn(boots, EnchantmentTagGenerator.PREVENTS_TRAMPLING);
 
-        return leather || featherFalling;
+        return item || enchant;
     }
 
     public static boolean cantCancelTrample(final Entity entity, final World world) {
