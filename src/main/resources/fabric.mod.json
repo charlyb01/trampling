@@ -21,6 +21,9 @@
     ],
     "modmenu": [
       "com.github.charlyb01.trampling.config.ModMenuIntegration"
+    ],
+    "fabric-datagen": [
+      "com.github.charlyb01.trampling.datagen.DataGenerator"
     ]
   },
   "mixins": [

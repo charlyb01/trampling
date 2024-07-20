@@ -1,13 +1,13 @@
 package com.github.charlyb01.trampling;
 
 import com.github.charlyb01.trampling.config.ModConfig;
+import com.github.charlyb01.trampling.datagen.ItemTagGenerator;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
@@ -31,7 +31,7 @@ public class Utils {
         if (!(entity instanceof LivingEntity livingEntity)) return false;
 
         ItemStack boots = livingEntity.getEquippedStack(EquipmentSlot.FEET);
-        boolean leather = ModConfig.get().cropBuff.leatherBoots && boots.isOf(Items.LEATHER_BOOTS);
+        boolean leather = ModConfig.get().cropBuff.leatherBoots && boots.isIn(ItemTagGenerator.NO_TRAMPLING_FOOT_WEARABLES);
         boolean featherFalling = ModConfig.get().cropBuff.featherFalling;
 
         return leather || featherFalling;
